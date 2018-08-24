@@ -19,11 +19,7 @@ public class SendMessage{
     @Resource
     private ScheduledMessage message;
     public void receiveData(ScheduledMessage message){
-        try {
             MyWebSocket.sendInfo(JSONObject.toJSONString(message));
-        }catch (IOException e){
-            log.info("IO异常，发送失败");
-        }
 
     }
 
