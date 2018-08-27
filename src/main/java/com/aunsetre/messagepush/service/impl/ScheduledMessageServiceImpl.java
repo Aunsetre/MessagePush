@@ -2,7 +2,7 @@ package com.aunsetre.messagepush.service.impl;
 
 import com.aunsetre.messagepush.dao.ScheduledMessageDAO;
 import com.aunsetre.messagepush.service.ScheduledMessageService;
-import com.aunsetre.messagepush.pojo.ScheduledMessage;
+import com.aunsetre.messagepush.pojo.Message;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -20,7 +20,7 @@ public class ScheduledMessageServiceImpl implements ScheduledMessageService {
     private ScheduledMessageDAO dao;
 
     @Override
-    public List<ScheduledMessage> getList() {
+    public List<Message> getList() {
         return dao.getList();
     }
     public void sortQueue(){

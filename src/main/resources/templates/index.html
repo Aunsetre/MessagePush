@@ -9,7 +9,10 @@ Welcome<br/>
 <input id="text" type="text" /><button onclick="send()">Send</button>    <button onclick="closeWebSocket()">Close</button>
 <div id="message">
 </div>
+<a href="javascript:void(0)"
+   class="easyui-linkbutton c8" iconCls="icon-search" data-url="updateDynamicScheduledTask">动态修改定时任务</a>
 </body>
+
 
 <script type="text/javascript">
     var websocket = null;
@@ -67,5 +70,16 @@ Welcome<br/>
         var message = document.getElementById('text').value;
         websocket.send(message);
     }
+    updateDynamicScheduledTask : function() {//动态修改定时任务
+        $.get("/user/updateDynamicScheduledTask", function(data) {
+            if (data.meta.success) {//动态修改定时任务成功
+                $.messager.alert('成功提示', "请重新刷新数据，有插入新的数据", 'info');
+            } else {
+                $.messager.alert('错误提示', data.meta.message, 'error');
+            }
+        }, 'json');
+    }
+
+
 </script>
 </html>

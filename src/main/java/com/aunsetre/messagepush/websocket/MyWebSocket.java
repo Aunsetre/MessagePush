@@ -1,9 +1,8 @@
 package com.aunsetre.messagepush.websocket;
 
-import com.aunsetre.messagepush.utils.SendMessage;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
@@ -19,8 +18,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 @Log
 public class MyWebSocket {
-    @Resource
-    private SendMessage sendMessage;
     /**
      * 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
      **/
@@ -93,9 +90,9 @@ public class MyWebSocket {
      * 发送信息
      * @param message
      * @throws IOException
+     * this.session.getBasicRemote().sendText(message);
      */
      public void sendMessage(String message) {
-    //this.session.getBasicRemote().sendText(message);
      this.session.getAsyncRemote().sendText(message);
      }
 

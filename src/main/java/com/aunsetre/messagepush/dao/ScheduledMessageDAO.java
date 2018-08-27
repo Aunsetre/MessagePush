@@ -1,6 +1,6 @@
 package com.aunsetre.messagepush.dao;
 
-import com.aunsetre.messagepush.pojo.ScheduledMessage;
+import com.aunsetre.messagepush.pojo.Message;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +16,5 @@ import java.util.List;
 @Repository("dao")
 public interface ScheduledMessageDAO {
      @Select("select * from `scheduledmessage` order by createDate")
-     List<ScheduledMessage> getList();
+     List<Message> getList();
 }

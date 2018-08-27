@@ -1,5 +1,6 @@
 package com.aunsetre.messagepush.pojo;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ import java.util.Date;
  */
 @Data
 @Component
-public class ScheduledMessage implements Serializable {
+public class Message implements Serializable {
     private static final long serialVersionUID=1L;
     private int id;
     private String title;
@@ -22,11 +23,5 @@ public class ScheduledMessage implements Serializable {
     private Date createDate;
     private String createAuthor;
 
-    public ScheduledMessage(int id, String title, String content, Date createDate, String createAuthor) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.createDate = createDate;
-        this.createAuthor = createAuthor;
-    }
+
 }

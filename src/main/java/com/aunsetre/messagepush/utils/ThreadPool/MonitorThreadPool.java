@@ -1,27 +1,22 @@
-package com.aunsetre.messagepush.utils;
+package com.aunsetre.messagepush.utils.ThreadPool;
 
 import lombok.extern.java.Log;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * Description:
- *
- * 线程池配置
- *
  * @author Aunsetre
- * @date 2018-08-22
+ * @date 2018-08-24
  */
-@EnableAsync
 @Log
-public class ExecutorConfig {
-    public Executor asyncServiceThreadPool(){
-        ThreadPoolTaskExecutor  executor=new ThreadPoolTaskExecutor();
+@Configuration
+public class MonitorThreadPool {
+    private ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();
+
+    public void execute(){
         //配置核心线程数
         executor.setCorePoolSize(Runtime.getRuntime().availableProcessors()*2);
         //配置最大线程数
@@ -35,6 +30,6 @@ public class ExecutorConfig {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         log.info("执行任务");
         executor.initialize();
-        return executor;
+
     }
 }

@@ -1,6 +1,6 @@
 package com.aunsetre.messagepush.service;
 
-import com.aunsetre.messagepush.pojo.ScheduledMessage;
+import com.aunsetre.messagepush.pojo.Message;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -13,6 +13,12 @@ import java.util.List;
  */
 
 public interface ScheduledMessageService {
-    List<ScheduledMessage> getList() throws SQLException, ClassNotFoundException;
+    /**
+     * 查询列表
+     * @return List
+     * @throws SQLException 查询异常
+     * @throws ClassNotFoundException 找不到异常
+     */
+    List<Message> getList() throws SQLException, ClassNotFoundException;
 
 }
